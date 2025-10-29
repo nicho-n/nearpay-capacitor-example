@@ -12,11 +12,14 @@ public class NearpayImplementationPlugin extends Plugin {
     private NearpayImplementation implementation = new NearpayImplementation();
 
     @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
-
-        JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
-        call.resolve(ret);
+    public void initialize(PluginCall call) {
+        try {
+            boolean initialized = implementation.initialize(bridge.getActivity());
+            JSObject ret = new JSObject();
+            ret.put("initialized", initialized);
+            call.resolve(ret);
+        } catch (Exception ex) {
+            call.reject("Initialization failed: " + ex.getMessage());
+        }
     }
 }
