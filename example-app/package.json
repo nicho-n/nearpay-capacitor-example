@@ -13,10 +13,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "7.0.0",
     "@capacitor/core": "latest",
-    "nearpay-capacitor-plugin-example": "file:..",
     "@capacitor/ios": "7.0.0",
-    "@capacitor/android": "7.0.0"
+    "nearpay-capacitor-plugin-example": "file:.."
   },
   "devDependencies": {
     "@capacitor/cli": "latest",

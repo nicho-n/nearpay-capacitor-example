@@ -21,6 +21,17 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://developer.huawei.com/repo/" }
+        maven {
+            url = uri("https://gitlab.com/api/v4/projects/37026421/packages/maven")
+            credentials(HttpHeaderCredentials) {
+                name = "Private-Token"
+                value = "glpat-TSRkyHYCEybzt7r0V9wLl286MQp1OmRyOXk1Cw.01.1200f3et3"
+            }
+            authentication {
+                create("header", HttpHeaderAuthentication)
+            }
+        }
     }
 }
 
